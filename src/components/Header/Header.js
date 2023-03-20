@@ -1,19 +1,48 @@
 import React from "react";
 import { Navbar, Button, Link, Text } from "@nextui-org/react";
+import {NAV_ITEMS} from "@/constants/nav-items";
+import styles from './Header.module.css';
+
 export const Header = () => {
+  
+  // Função para renderizar os itens da barra de navegação
+  const renderNavItems = () => {
+    return NAV_ITEMS.map((item, index) => {
+      return (
+        <Navbar.Link key={index} href={item.link}>{item.label}</Navbar.Link>
+      );
+    });
+  };
+  
+  // Função para renderizar os itens da barra lateral (mobile)
+  const renderCollpaseItems = () => {
+    return NAV_ITEMS.map((item, index) => {
+      return (
+        <Navbar.CollapseItem key={index}>
+          <Link
+            color="inherit"
+            css={{
+              minWidth: "100%",
+            }}
+            href={item.link}
+          >
+            {item.label}
+          </Link>
+        </Navbar.CollapseItem>
+      );
+    });
+  };
+  
   return (
-    <Navbar variant="static">
+    <Navbar className={styles.header} isCompact variant="static">
       <Navbar.Brand>
-        <Text b color="inherit" hideIn="xs">
+        <Navbar.Toggle showIn="xs" aria-label="toggle navigation" />
+        <Text b color="inherit">
           BISTRÔ
         </Text>
       </Navbar.Brand>
       <Navbar.Content hideIn="xs" variant="underline">
-        <Navbar.Link isActive href="#">Home</Navbar.Link>
-        <Navbar.Link href="#">Quem Somos</Navbar.Link>
-        <Navbar.Link href="#">Cardápio</Navbar.Link>
-        <Navbar.Link href="#">Eventos</Navbar.Link>
-        <Navbar.Link href="#">Reservas</Navbar.Link>
+        {renderNavItems()}
       </Navbar.Content>
       <Navbar.Content>
         <Navbar.Link color="inherit" href="#">
@@ -25,6 +54,10 @@ export const Header = () => {
           </Button>
         </Navbar.Item>
       </Navbar.Content>
+      
+      <Navbar.Collapse>
+        {renderCollpaseItems()}
+      </Navbar.Collapse>
     </Navbar>
   );
 };
