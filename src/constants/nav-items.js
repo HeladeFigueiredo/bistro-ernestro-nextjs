@@ -1,23 +1,25 @@
 // Quando está tudo em maiúsculo significa que é estático
+// Este é um array de objetos que contém os itens da navbar e sua rota
+
 export const NAV_ITEMS = [
   {
     label: 'Home',
-    link: '#',
+    link: '/',
     items: null,
   },
   {
     label: 'Quem Somos',
-    link: '#',
+    link: '/quem-somos',
     items: null,
   },
   {
     label: 'Cardápio',
-    link: '#',
+    link: '/cardapio',
     items: null,
   },
   {
     label: 'Eventos',
-    link: '#',
+    link: '/eventos',
     items: [
       {
         label: 'Confraternização',
@@ -39,7 +41,7 @@ export const NAV_ITEMS = [
   },
   {
     label: 'Reservas',
-    link: '#',
+    link: '/reservas',
     items: null,
   },
 ];

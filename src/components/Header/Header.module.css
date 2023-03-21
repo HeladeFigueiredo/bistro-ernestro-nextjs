@@ -1,3 +1,15 @@
 .header {
-    background-color: red;
+    /*border-bottom: 2px solid black;*/
+}
+
+.items {
+    margin-left: 5px;
+}
+
+.logo {
+    margin-left: 10px;
+}
+
+.user {
+    color: black;
 }
